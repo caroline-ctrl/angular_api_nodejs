@@ -8,6 +8,7 @@ import { ProductService } from './../product.service';
   styleUrls: ['./product-form.component.css']
 })
 export class ProductFormComponent implements OnInit {
+  // declare un produit vide
   product: Product = {
     title: '',
     content: '',
@@ -15,7 +16,7 @@ export class ProductFormComponent implements OnInit {
     updated_at: ''
   };
 
-  is_submit = false;
+  isSubmit = false;
 
   constructor(private productService: ProductService) { }
 
@@ -24,30 +25,32 @@ export class ProductFormComponent implements OnInit {
 
   saveProduct()
   {
-    const data = {
+    const data = { // recupère les valeur du formulaire
       title: this.product.title,
       content: this.product.content,
       created_at: this.product.created_at,
       updated_at: this.product.updated_at
     };
 
+    // fait appel a la methode createProduct présente dans productService et on passe la data
     this.productService.createProduct(data).subscribe(result => {
-      this.is_submit = true;
-    },error => {
+      this.isSubmit = true;
+    }, error => {
       console.log(error);
     });
   }
 
-  
+
   newProduct()
   {
-    this.is_submit = false;
+    this.isSubmit = false;
+    // un nouveau produit vide
     this.product = {
       title: '',
       content: '',
       created_at: '',
       updated_at: ''
-    }
+    };
   }
 
 }
