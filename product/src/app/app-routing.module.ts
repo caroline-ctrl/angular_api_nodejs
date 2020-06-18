@@ -3,12 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductComponent} from './product/product.component';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { ProductFormComponent } from './product/product-form/product-form.component';
+import { ProductDeleteComponent } from './product/product-delete/product-delete.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: 'books', pathMatch: 'full'},
   {path: 'update/:id', component: ProductFormComponent},
-  {path: 'delete/:id', component: ProductComponent},
+  {path: 'delete/:id', component: ProductDeleteComponent},
   {path: 'add', component: ProductFormComponent},
   {path: 'product/:id', component: ProductDetailsComponent},
   {path: 'products', component: ProductComponent}
