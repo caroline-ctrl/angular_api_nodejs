@@ -2,25 +2,32 @@
 
   <div class="submit-form">
 
-    <div class="form-group">
-      <label for="name">Titre</label>
-      <input type="text" class="form-control" id="title" required name="title" value="{{dataProduct.title}}">
-    </div>
-    <div class="form-group">
-      <label for="content">Contenu</label>
-      <input type="text" class="form-control" id="content" required name="content" value="{{dataProduct.content}}">
-    </div>
-    <div class="form-group">
-      <label for="created_at">Date</label>
-      <input type="text" class="form-control" id="created_at" required name="created_at"
-        value="{{dataProduct.created_at}}">
-    </div>
-    <div class="form-group">
-      <label for="updated_at">Modifié</label>
-      <input type="text" class="form-control" id="updated_at" required name="updated_at"
-        value="{{dataProduct.updated_at}}">
+    <div *ngIf="!isSubmit">
+      <div class="form-group">
+        <label for="name">Titre</label>
+        <input type="text" class="form-control" id="title" required name="title" [(ngModel)]="dataProduct.title">
+      </div>
+      <div class="form-group">
+        <label for="content">Contenu</label>
+        <input type="text" class="form-control" id="content" required name="content" [(ngModel)]="dataProduct.content">
+      </div>
+      <div class="form-group">
+        <label for="created_at">Date</label>
+        <input type="text" class="form-control" id="created_at" required name="created_at"
+          [(ngModel)]="dataProduct.created_at">
+      </div>
+      <div class="form-group">
+        <label for="updated_at">Modifié</label>
+        <input type="text" class="form-control" id="updated_at" required name="updated_at"
+          [(ngModel)]="dataProduct.updated_at">
+      </div>
+      <button (click)="updateProduct()" class="btn btn-success">Modifier</button>
     </div>
 
-    <button  class="btn btn-success">Modifier</button>
+    <div *ngIf="isSubmit">
+        <h4>Le produit a été modifié !</h4>
+        <a href="/products" class="badge badge-info">Retour aux produits</a>
+    </div>
+
   </div>
 </div>

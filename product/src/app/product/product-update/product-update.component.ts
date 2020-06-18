@@ -13,6 +13,8 @@ export class ProductUpdateComponent implements OnInit {
   // je recupère le produit par l'id
   dataProduct = null;
 
+  isSubmit = false;
+
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
@@ -34,33 +36,26 @@ export class ProductUpdateComponent implements OnInit {
     );
   }
 
-  // product: Product = {
-  //   title: this.dataProduct.title,
-  //   content: this.dataProduct.content,
-  //   created_at: this.dataProduct.created_at,
-  //   updated_at: this.dataProduct.updated_at
-  // };
 
+  updateProduct() {
+    // recupère les valeur du formulaire
+    const data = {
+      title: this.dataProduct.title,
+      content: this.dataProduct.content,
+      created_at: this.dataProduct.created_at,
+      updated_at: this.dataProduct.updated_at
+    };
 
+    const id = this.dataProduct._id;
 
-  // updateProduct(id) {
-  //   const data = {
-  //     // recupère les valeur du formulaire
-  //     title: this.product.title,
-  //     content: this.product.content,
-  //     created_at: this.product.created_at,
-  //     updated_at: this.product.updated_at
-  //   };
-
-  //   // j'utilise la methode du productService
-  //   this.productService.updateProduct(data, id).subscribe(
-  //     (product) => {
-  //       console.log('produit modifié')
-  //       // this.dataProduct = product;
-  //     },
-  //     (err) => {
-  //       console.log(err);
-  //     }
-  //   );
-  // }
+    // j'utilise la methode du productService
+    this.productService.updateProduct(data, id).subscribe(
+      () => {
+        this.isSubmit = true;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
 }
