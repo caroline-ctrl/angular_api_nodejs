@@ -14,6 +14,8 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getProduct().subscribe(products => {
       console.log(products);
+      this.products = products; // dans le tableau déclaré plus haut on y met les produits(parametre de la fonction)
+      // tableau envoyé a la vue
     });
   }
 

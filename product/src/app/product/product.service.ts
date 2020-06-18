@@ -10,7 +10,34 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getProduct() {
+  // avoir la totalité des produits
+  getProduct()
+  {
     return this.http.get<Product[]>(this.REST_API_SERVER);
+    // on retourne le tableau de produit a travers l'api
+  }
+
+  // un produit en fonction de l'id
+  getProductById(id: string)
+  {
+    return this.http.get<Product>(this.REST_API_SERVER + id);
+  }
+
+  // créer un produit
+  createProduct(data: Product)
+  {
+    return this.http.post<Product>(this.REST_API_SERVER, data);
+  }
+
+  // modifier un produit
+  updateProduct(data: Product, id: string)
+  {
+    return this.http.put<Product>(this.REST_API_SERVER + id, data);
+  }
+
+  // supprimer un produit
+  deleteProduct(id: string)
+  {
+    return this.http.delete<Product>(this.REST_API_SERVER + id);
   }
 }
