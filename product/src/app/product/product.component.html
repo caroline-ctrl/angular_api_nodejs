@@ -1,4 +1,11 @@
-<div *ngFor="let product of products">
-    <h1>{{product.title}}</h1>
-    <p>{{product.content}}</p>
+<div class="container">
+
+    <div *ngFor="let product of products">
+        <h1>{{product.title}}</h1>
+        <p>{{product.content}}</p>
+        <a href="/product/{{product._id}}" class="badge badge-info">Voir le produit</a><br>
+        <a href="/update/{{product._id}}" class="badge badge-warning">Modifier le produit</a><br>
+        <a href="/delete/{{product._id}}" class="badge badge-danger">Supprimer le produit</a>
+
+    </div>
 </div>
