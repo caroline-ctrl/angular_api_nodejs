@@ -9,6 +9,7 @@ import { ProductComponent } from './product/product.component';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { ProductFormComponent } from './product/product-form/product-form.component';
 import { ProductDeleteComponent } from './product/product-delete/product-delete.component';
+import { ProductUpdateComponent } from './product/product-update/product-update.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ProductDeleteComponent } from './product/product-delete/product-delete.
     ProductComponent,
     ProductDetailsComponent,
     ProductFormComponent,
-    ProductDeleteComponent
+    ProductDeleteComponent,
+    ProductUpdateComponent
   ],
   imports: [
     BrowserModule,

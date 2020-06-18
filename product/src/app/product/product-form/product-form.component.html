@@ -2,61 +2,32 @@
 
   <div class="submit-form">
 
-    <div *ngIf="!updat">
-      <div *ngIf="!isSubmit">
-        <div class="form-group">
-          <label for="name">Titre</label>
-          <input type="text" class="form-control" id="title" required name="title" [(ngModel)]="product.title">
-        </div>
-        <div class="form-group">
-          <label for="content">Contenu</label>
-          <input type="text" class="form-control" id="content" required name="content" [(ngModel)]="product.content">
-        </div>
-        <div class="form-group">
-          <label for="created_at">Date</label>
-          <input type="text" class="form-control" id="created_at" required name="created_at"
-            [(ngModel)]="product.created_at">
-        </div>
-        <div class="form-group">
-          <label for="updated_at">Modifié</label>
-          <input type="text" class="form-control" id="updated_at" required name="updated_at"
-            [(ngModel)]="product.updated_at">
-        </div>
-
-        <button (click)="saveProduct()" class="btn btn-success">Rajouter</button>
+    <div *ngIf="!isSubmit">
+      <div class="form-group">
+        <label for="name">Titre</label>
+        <input type="text" class="form-control" id="title" required name="title" [(ngModel)]="product.title">
+      </div>
+      <div class="form-group">
+        <label for="content">Contenu</label>
+        <input type="text" class="form-control" id="content" required name="content" [(ngModel)]="product.content">
+      </div>
+      <div class="form-group">
+        <label for="created_at">Date</label>
+        <input type="text" class="form-control" id="created_at" required name="created_at"
+          [(ngModel)]="product.created_at">
+      </div>
+      <div class="form-group">
+        <label for="updated_at">Modifié</label>
+        <input type="text" class="form-control" id="updated_at" required name="updated_at"
+          [(ngModel)]="product.updated_at">
       </div>
 
-      <div *ngIf="isSubmit">
-        <h4>Le produit a été rajouter</h4>
-        <button class="btn btn-success" (click)="newProduct()">Rajouter un produit</button>
-      </div>
+      <button (click)="saveProduct()" class="btn btn-success">Rajouter</button>
+    </div>
 
-
-
-
-      <div *ngIf="updat">
-        <div class="form-group">
-          <label for="name">Titre</label>
-          <input type="text" class="form-control" id="title" required name="title" [(ngModel)]="dataProduct.updated_at">
-        </div>
-        <div class="form-group">
-          <label for="content">Contenu</label>
-          <input type="text" class="form-control" id="content" required name="content" [(ngModel)]="dataProduct.updated_at">
-        </div>
-        <div class="form-group">
-          <label for="created_at">Date</label>
-          <input type="text" class="form-control" id="created_at" required name="created_at"
-            [(ngModel)]="dataProduct.updated_at">
-        </div>
-        <div class="form-group">
-          <label for="updated_at">Modifié</label>
-          <input type="text" class="form-control" id="updated_at" required name="updated_at"
-            [(ngModel)]="dataProduct.updated_at">
-        </div>
-
-        <button (click)="updateProduct('5eeb1c0f18fce71398a598a0')" class="btn btn-success">Rajouter</button>
-      </div>
+    <div *ngIf="isSubmit">
+      <h4>Le produit a été rajouter</h4>
+      <button class="btn btn-success" (click)="newProduct()">Rajouter un produit</button>
     </div>
   </div>
-
 </div>
