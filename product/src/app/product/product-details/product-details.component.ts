@@ -26,7 +26,5 @@ currentProduct = null;
     }, error => {
       console.log(error);
     });
-
   }
-
 }

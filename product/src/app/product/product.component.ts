@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from './product.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -9,7 +10,7 @@ import { ProductService } from './product.service';
 export class ProductComponent implements OnInit {
   products = [];
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.productService.getProduct().subscribe(products => {
@@ -17,6 +18,14 @@ export class ProductComponent implements OnInit {
       this.products = products; // dans le tableau déclaré plus haut on y met les produits(parametre de la fonction)
       // tableau envoyé a la vue
     });
+
+    this.deleteProduct(this.route.snapshot.paramMap.get('id'));
+
+  }
+
+  deleteProduct(id)
+  {
+    this.productService.deleteProduct(id).subscribe();
   }
 
 }
